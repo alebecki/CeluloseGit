@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class EnemyCell_AI : MonoBehaviour
 {
+    public GameObject[] Cell_parts;
+    public GameObject Death;
+    public ParticleSystem DeathP;
+    public bool Die;
+    public ParticleSystem Normal;
+    public ParticleSystem RamparticleR;
+    public GameObject Ramparticle;
+    public GameObject infected;
+    Animator Cell_Animator;
+    public bool Viri_Attack;
     public bool Attack;
     public Collider[] Cell_Walls;
     public Collider Controlled_Collider;
@@ -17,6 +27,7 @@ public class EnemyCell_AI : MonoBehaviour
     public GameObject LookAtViri_Center;
     public bool Hit_Viri;
     Collider Viri_Collider;
+    Viri_AI Viri_Code;
     float ram1;
     float ram2;
     float ram3;
@@ -26,63 +37,104 @@ public class EnemyCell_AI : MonoBehaviour
         Controlled_Collider.enabled = false;
         Viri = GameObject.Find("Viri");
         Viri_Collider = Viri.GetComponent<Collider>();
+        Viri_Code = Viri.GetComponent<Viri_AI>();
+        Cell_Animator = GetComponent<Animator>();
+    }
+    void KillCell()
+    {
+        //kills the cell
+        Death.SetActive(true);
+        foreach (GameObject wall in Cell_parts)
+        {
+            Destroy(wall, 0);
+        }
+        if(!DeathP.isPlaying)
+        {
+            Destroy(this.gameObject, 0);
+        }
     }
     void ControlTheCell()
     {
         //add in the code of how Viri will control the cell
+        Normal.loop = false;
+        RamparticleR.loop = false;
+        infected.SetActive(true);
+        Viri_Code.Control_Cell_Mode = true;
+        Viri_Code.Cell_Code = this.gameObject.GetComponent<EnemyCell_AI>();
         foreach(Collider wall in Cell_Walls)
         {
             wall.enabled = false;
         }
         Viri_Collider.enabled = false;
         Controlled_Collider.enabled = true;
-
-
+        transform.rotation = Viri.transform.rotation;
         transform.position = Viri.transform.position;
     }
     void Update()
     {
-        switch (Enemy_Type)
-        {
-            case 0:
+        switch(Die){
+            case true:
                 {
-                    //rammer enemy
-                    switch (Viri_in_cell)
+                    KillCell();
+                    break;
+                }
+            case false:
+                {
+                    switch (Enemy_Type)
                     {
-                        case false:
+                        case 0:
                             {
-                                Rammer();
-                                break;
-                            }
-                        case true:
-                            {
-                                PrepareAttack = false;
-                                switch(Viri_control_the_cell)
+                                //rammer enemy
+                                switch (Viri_in_cell)
                                 {
+                                    case false:
+                                        {
+                                            Cell_Animator.SetInteger("Cell_Animate", 0);
+                                            Rammer();
+                                            break;
+                                        }
                                     case true:
                                         {
-                                            ControlTheCell();
+                                            PrepareAttack = false;
+                                            switch (Viri_control_the_cell)
+                                            {
+                                                case true:
+                                                    {
+                                                        Cell_Animator.SetInteger("Cell_Animate", 0);
+                                                        Cell_Animator.enabled = false;
+                                                        ControlTheCell();
+                                                        break;
+                                                    }
+                                                case false:
+                                                    {
+                                                        PrepareAttack = false;
+                                                        Cell_Animator.SetInteger("Cell_Animate", 1);
+                                                        break;
+                                                    }
+                                            }
                                             break;
                                         }
                                 }
                                 break;
                             }
+                        case 1:
+                            {
+                                break;
+                            }
+                           
                     }
                     break;
-                }
-            case 1:
-                {
-                    break;
-                }
+        }
         }
     }
 	void OnCollisionEnter(Collision collision)
 	{
-        if((Viri_control_the_cell == true)&&(collision.gameObject != Viri)||(collision.gameObject.GetComponent<EnemyCell_AI>().Attack == true))
+        if((Viri_control_the_cell == true)&&((collision.gameObject != Viri))&&(Viri_Attack == false))
         {
             //this can have more polish later on
+            Viri_Code.Control_Cell_Mode = false;
             Viri_Collider.enabled = true;
-            Destroy(this.gameObject,0);
+            Die = true;
         }
 	}
 	void OnTriggerEnter(Collider other)
@@ -98,7 +150,7 @@ public class EnemyCell_AI : MonoBehaviour
         {
             case false:
                 {
-                    Attack = true;
+                    Attack = false;
                     Hit_Viri = false;
                     ram1 = 0; ram2 = 0; ram3 = 0;
                     transform.position = Vector3.MoveTowards(transform.position, Viri.transform.position, speed * Time.deltaTime);
@@ -142,11 +194,15 @@ public class EnemyCell_AI : MonoBehaviour
                                     if (ram2 < maxBackwardsAmount2)
                                     {
                                         Attack = true;
+                                        Ramparticle.transform.LookAt(LookAtViri_Center.transform, Vector3.up);
+                                        Ramparticle.SetActive(true);
+
                                         transform.position = Vector3.MoveTowards(transform.position, LookAtViri_Center.transform.position, (speed * fastDownfactor) * Time.deltaTime);
                                         ram2 += .5f * Time.deltaTime;
                                     }
                                     else
                                     {
+                                        Ramparticle.SetActive(false);
                                         Attack = false;
                                         PrepareAttack = false;
                                     }
