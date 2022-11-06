@@ -151,17 +151,8 @@ public class Viri_AI : MonoBehaviour
                                         PainKnockBack = false;
                                     }
                                 }
-                                if(Hurt_by == null)
-                                {
-                                    if (Hurt_Time == 0)
-                                    {
-                                        Lives.healthValue--;
-                                    }
-                                    Hurt_Time += 2 * Time.smoothDeltaTime;
-                                }else{
-
-                                    PainKnockBack = false;
-                                }
+                                if (Hurt_by == null)
+                                { PainKnockBack = false; }
                                 
                                 break;
                             }
@@ -202,6 +193,7 @@ public class Viri_AI : MonoBehaviour
         if (other.name == "ShootG")
         {
             Hurt_by = other.gameObject;
+            Lives.healthValue--;
             PainKnockBack = true;
         }
 	}
@@ -210,6 +202,7 @@ public class Viri_AI : MonoBehaviour
 		if(collision.gameObject.GetComponent<Collider_Checker>() != null)
         {
             Hurt_by = collision.gameObject;
+            Lives.healthValue--;
             PainKnockBack = true;
         }
 	}
