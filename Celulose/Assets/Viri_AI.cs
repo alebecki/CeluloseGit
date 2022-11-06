@@ -139,11 +139,20 @@ public class Viri_AI : MonoBehaviour
                     {
                         case true:
                             {
-                                transform.position = Vector3.MoveTowards(transform.position, Hurt_by.transform.position, -(speed*.5f) * Time.deltaTime);
-                                if(Hurt_Time < 2)
+                                if (Hurt_by != null)
                                 {
-                                    Hurt_Time += 2 * Time.smoothDeltaTime;
-                                }else{
+                                    transform.position = Vector3.MoveTowards(transform.position, Hurt_by.transform.position, -(speed * .5f) * Time.deltaTime);
+                                    if (Hurt_Time < 2)
+                                    {
+                                        Hurt_Time += 2 * Time.smoothDeltaTime;
+                                    }
+                                    else
+                                    {
+                                        PainKnockBack = false;
+                                    }
+                                }
+                                if(Hurt_by == null)
+                                {
                                     PainKnockBack = false;
                                 }
                                 break;

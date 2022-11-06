@@ -33,9 +33,12 @@ public class EnemyCell_AI : MonoBehaviour
     float ram1;
     float ram2;
     float ram3;
+    //cells that are killed are alerted to the SpawnMaster
+    Spawner LetTheSpawnKnow;
     void Start()
     {
         //looks for an assigns our player, Viri, to the enemy cell.
+        LetTheSpawnKnow = GameObject.Find("SpawnMaster").GetComponent<Spawner>();
         Controlled_Collider.enabled = false;
         Viri = GameObject.Find("Viri");
         Viri_Collider = Viri.GetComponent<Collider>();
@@ -43,11 +46,27 @@ public class EnemyCell_AI : MonoBehaviour
         Cell_Animator = GetComponent<Animator>();
         if(Enemy_Type == 1)
         {
+            LetTheSpawnKnow.ShootersPresent += 1;
             transform.LookAt(Viri.transform, Vector3.up);
         }
     }
+    bool Count_Once;
     void KillCell()
     {
+        if (Count_Once == false)
+        {
+            if (Enemy_Type == 0)
+            {
+                LetTheSpawnKnow.RammerCellsKilled += 1;
+                Count_Once = true;
+            }
+            if (Enemy_Type == 1)
+            {
+                LetTheSpawnKnow.ShootersPresent -= 1;
+                LetTheSpawnKnow.ShooterCellsKilled += 1;
+                Count_Once = true;
+            }
+        }
         //kills the cell
         Death.SetActive(true);
         foreach (GameObject wall in Cell_parts)
@@ -66,6 +85,10 @@ public class EnemyCell_AI : MonoBehaviour
         {
             case 0:
                 {
+                    if(LetTheSpawnKnow.LearnToTakeControl == false)
+                    {
+                        LetTheSpawnKnow.LearnToTakeControl = true;
+                    }
                     Viri_Code.Control_Cell_Type = 0;
                     break;
                 }
@@ -162,8 +185,8 @@ public class EnemyCell_AI : MonoBehaviour
                                         {
                                             var RotateToViri = Viri.transform.position - transform.position;
                                             RotateToViri.y = 0;
-                                            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(RotateToViri), Time.smoothDeltaTime * 25f);
-                                            transform.Translate(0, 0, .5f * Time.smoothDeltaTime);
+                                            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(RotateToViri), Time.smoothDeltaTime * 12.5f);
+                                            transform.Translate(0, 0, .375f * Time.smoothDeltaTime);
                                             break;
                                         }
                                 }
