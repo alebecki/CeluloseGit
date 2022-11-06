@@ -8,7 +8,7 @@ public class Lives : MonoBehaviour
     public static int healthValue;
     TMPro.TextMeshProUGUI health;
     public GameObject endMenu;
-    bool gameOver;
+    public bool gameOver;
 
     // Start is called before the first frame update
     void Start()
