@@ -146,6 +146,7 @@ public class Viri_AI : MonoBehaviour
                                 }else{
                                     PainKnockBack = false;
                                 }
+                                Lives.healthValue--;
                                 break;
                             }
                         case false:

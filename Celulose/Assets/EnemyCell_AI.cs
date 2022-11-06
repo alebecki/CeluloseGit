@@ -49,6 +49,7 @@ public class EnemyCell_AI : MonoBehaviour
     void KillCell()
     {
         //kills the cell
+        Score.scoreValue++;
         Death.SetActive(true);
         foreach (GameObject wall in Cell_parts)
         {
