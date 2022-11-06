@@ -20201,6 +20201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Cell
       objectReference: {fileID: 0}
+    - target: {fileID: 4587423019913685982, guid: d46c50b9fb6ac4347a0575ad5bad6f0f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4587423019913685989, guid: d46c50b9fb6ac4347a0575ad5bad6f0f, type: 3}
       propertyPath: m_RootOrder
       value: 4

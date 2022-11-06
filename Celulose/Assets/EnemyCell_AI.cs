@@ -158,11 +158,11 @@ public class EnemyCell_AI : MonoBehaviour
                                             }
                                             break;
                                         }
-                                    case false:
+                                    case false: 
                                         {
                                             var RotateToViri = Viri.transform.position - transform.position;
                                             RotateToViri.y = 0;
-                                            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(RotateToViri), Time.time * .015f);
+                                            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(RotateToViri), Time.smoothDeltaTime * 25f);
                                             transform.Translate(0, 0, .5f * Time.smoothDeltaTime);
                                             break;
                                         }
