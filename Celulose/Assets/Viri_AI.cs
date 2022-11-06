@@ -153,8 +153,16 @@ public class Viri_AI : MonoBehaviour
                                 }
                                 if(Hurt_by == null)
                                 {
+                                    if (Hurt_Time == 0)
+                                    {
+                                        Lives.healthValue--;
+                                    }
+                                    Hurt_Time += 2 * Time.smoothDeltaTime;
+                                }else{
+
                                     PainKnockBack = false;
                                 }
+                                
                                 break;
                             }
                         case false:
