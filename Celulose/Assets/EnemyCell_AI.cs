@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyCell_AI : MonoBehaviour
 {
+    public ParticleSystem AutoShoot;
+    public ParticleSystem ManualShoot;
     public GameObject[] Cell_parts;
     public GameObject Death;
     public ParticleSystem DeathP;
@@ -39,6 +41,10 @@ public class EnemyCell_AI : MonoBehaviour
         Viri_Collider = Viri.GetComponent<Collider>();
         Viri_Code = Viri.GetComponent<Viri_AI>();
         Cell_Animator = GetComponent<Animator>();
+        if(Enemy_Type == 1)
+        {
+            transform.LookAt(Viri.transform, Vector3.up);
+        }
     }
     void KillCell()
     {
@@ -56,6 +62,24 @@ public class EnemyCell_AI : MonoBehaviour
     void ControlTheCell()
     {
         //add in the code of how Viri will control the cell
+        switch(Enemy_Type)
+        {
+            case 0:
+                {
+                    Viri_Code.Control_Cell_Type = 0;
+                    break;
+                }
+            case 1:
+                {
+                    AutoShoot.gameObject.SetActive(false);
+                    Viri_Code.Control_Cell_Type = 1;
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        ManualShoot.GetComponent<ParticleSystem>().Play();
+                    }
+                    break;
+                }
+        }
         Normal.loop = false;
         RamparticleR.loop = false;
         infected.SetActive(true);
@@ -119,6 +143,30 @@ public class EnemyCell_AI : MonoBehaviour
                             }
                         case 1:
                             {
+                                //shooter enemy
+                                switch (Viri_in_cell)
+                                {
+                                    case true:
+                                        {
+                                            switch (Viri_control_the_cell)
+                                            {
+                                                case true:
+                                                    {
+                                                        ControlTheCell();
+                                                        break;
+                                                    }
+                                            }
+                                            break;
+                                        }
+                                    case false:
+                                        {
+                                            var RotateToViri = Viri.transform.position - transform.position;
+                                            RotateToViri.y = 0;
+                                            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(RotateToViri), Time.time * .015f);
+                                            transform.Translate(0, 0, .5f * Time.smoothDeltaTime);
+                                            break;
+                                        }
+                                }
                                 break;
                             }
                            
@@ -139,12 +187,23 @@ public class EnemyCell_AI : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == Viri)
+        if ((other.gameObject == Viri)&&(Enemy_Type == 0))
         {
             PrepareAttack = true;
         }
     }
-    void Rammer()
+	void OnParticleCollision(GameObject other)
+	{
+        if (other.name == "ShootG (1)")
+        {
+            Die = true;
+        }
+        if ((other.name == "ShootG")&&(Viri_control_the_cell == true))
+        {
+            Die = true;
+        }
+	}
+	void Rammer()
     {
         switch (PrepareAttack)
         {

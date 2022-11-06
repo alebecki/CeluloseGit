@@ -50,4 +50,11 @@ public class Collider_Checker : MonoBehaviour
             parentCode.Viri_in_cell = false;
         }
 	}
+    void OnParticleCollision(GameObject other)
+    {
+        if (other.name == "ShootG (1)")
+        {
+            parentCode.Die = true;
+        }
+    }
 }

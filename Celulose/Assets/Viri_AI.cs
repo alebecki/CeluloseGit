@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Viri_AI : MonoBehaviour
 {
+    public int Control_Cell_Type;
     public GameObject InfectRam;
     public GameObject Infected_Play;
     public GameObject RotateParticle;
@@ -11,7 +12,7 @@ public class Viri_AI : MonoBehaviour
     public GameObject CellPolishOUT;
     public bool InThisCell;
     public bool WasInCell;
-    GameObject Hurt_by;
+    public GameObject Hurt_by;
     public EnemyCell_AI Cell_Code;
     public bool Control_Cell_Mode;
     public int Control_Type;
@@ -29,6 +30,7 @@ public class Viri_AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = new Vector3(transform.position.x, -45.15341f, transform.position.z);
         if(InThisCell == true)
         {
             CellPolishIN.SetActive(true);
@@ -46,48 +48,81 @@ public class Viri_AI : MonoBehaviour
                 {
                     Infected_Play.SetActive(true);
                     Reset_rotation = true;
-                    if(Cell_Code == null)
+                    if (Cell_Code == null)
                     {
                         Control_Cell_Mode = false;
                     }
-                    var TurnFactor = 100;
-                    var CellSpeed = 1.5f;
-                    //
-                    if (Input.GetKey(KeyCode.S))
+                    switch (Control_Cell_Type)
                     {
-                        transform.Translate(0, 0, (speed * CellSpeed) * Time.deltaTime);
-                    }
-                    if (Input.GetKey(KeyCode.W))
-                    {
-                        transform.Translate(0, 0, -(speed * CellSpeed) * Time.smoothDeltaTime);
-                    }
-                    if (Input.GetKey(KeyCode.A))
-                    {
-                        transform.Rotate(0, -(speed * TurnFactor) * Time.smoothDeltaTime, 0);
-                    }
-                    if (Input.GetKey(KeyCode.D))
-                    {
-                        transform.Rotate(0, (speed * TurnFactor) * Time.smoothDeltaTime, 0);
-                    }
-                    //
-                    if((Input.GetKey(KeyCode.Space))&&(Do_Ram == false))
-                    {
-                        InfectRam.SetActive(true);
-                        InfectRam.GetComponent<ParticleSystem>().Play();
-                        Cell_Code.Viri_Attack = true;
-                        Ram_Speed = 10;
-                        Do_Ram = true;
-                    }
-                    //
-                    if(Ram_Speed > 0)
-                    {
-                        transform.Translate(0, 0, -(Ram_Speed * CellSpeed) * Time.smoothDeltaTime);
-                        Ram_Speed -= 15f * Time.smoothDeltaTime;
-                    }else{
-                        Cell_Code.Viri_Attack = false;
-                        Ram_Speed = 0;
-                        Do_Ram = false;
-                    }
+                        case 1:
+                            {
+                                var TurnFactor = 25;
+                                var CellSpeed = 1.25f;
+                                //
+                                if (Input.GetKey(KeyCode.S))
+                                {
+                                    transform.Translate(0, 0, -(speed * CellSpeed) * Time.deltaTime);
+                                }
+                                if (Input.GetKey(KeyCode.W))
+                                {
+                                    transform.Translate(0, 0, (speed * CellSpeed) * Time.smoothDeltaTime);
+                                }
+                                if (Input.GetKey(KeyCode.A))
+                                {
+                                    transform.Rotate(0, (-speed * TurnFactor) * Time.smoothDeltaTime, 0);
+                                }
+                                if (Input.GetKey(KeyCode.D))
+                                {
+                                    transform.Rotate(0, (speed * TurnFactor) * Time.smoothDeltaTime, 0);
+                                }
+                                //
+                                break;
+                            }
+                        case 0:
+                            {
+                                var TurnFactor = 100;
+                                var CellSpeed = 1.5f;
+                                //
+                                if (Input.GetKey(KeyCode.S))
+                                {
+                                    transform.Translate(0, 0, (speed * CellSpeed) * Time.deltaTime);
+                                }
+                                if (Input.GetKey(KeyCode.W))
+                                {
+                                    transform.Translate(0, 0, -(speed * CellSpeed) * Time.smoothDeltaTime);
+                                }
+                                if (Input.GetKey(KeyCode.A))
+                                {
+                                    transform.Rotate(0, -(speed * TurnFactor) * Time.smoothDeltaTime, 0);
+                                }
+                                if (Input.GetKey(KeyCode.D))
+                                {
+                                    transform.Rotate(0, (speed * TurnFactor) * Time.smoothDeltaTime, 0);
+                                }
+                                //
+                                if ((Input.GetKey(KeyCode.Space)) && (Do_Ram == false))
+                                {
+                                    InfectRam.SetActive(true);
+                                    InfectRam.GetComponent<ParticleSystem>().Play();
+                                    Cell_Code.Viri_Attack = true;
+                                    Ram_Speed = 10;
+                                    Do_Ram = true;
+                                }
+                                //
+                                if (Ram_Speed > 0)
+                                {
+                                    transform.Translate(0, 0, -(Ram_Speed * CellSpeed) * Time.smoothDeltaTime);
+                                    Ram_Speed -= 15f * Time.smoothDeltaTime;
+                                }
+                                else
+                                {
+                                    Cell_Code.Viri_Attack = false;
+                                    Ram_Speed = 0;
+                                    Do_Ram = false;
+                                }
+                                break;
+                            }
+                }
                     break;
                 }
             case false:
@@ -97,7 +132,7 @@ public class Viri_AI : MonoBehaviour
                     Infected_Play.SetActive(false);
                     if (Reset_rotation == true)
                     {
-                        transform.rotation = Quaternion.Euler(90, 180, 0);
+                        transform.rotation = Quaternion.Euler(0, 180, 0);
                         Reset_rotation = false;
                     }
                     switch (PainKnockBack)
@@ -145,6 +180,14 @@ public class Viri_AI : MonoBehaviour
                 }
     }
     }
+	void OnParticleCollision(GameObject other)
+	{
+        if (other.name == "ShootG")
+        {
+            Hurt_by = other.gameObject;
+            PainKnockBack = true;
+        }
+	}
 	void OnCollisionEnter(Collision collision)
 	{
 		if(collision.gameObject.GetComponent<Collider_Checker>() != null)
