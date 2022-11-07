@@ -9,16 +9,28 @@ public class Collider_Checker : MonoBehaviour
     public int Variant;
     Viri_AI Viri_Code;
     GameObject Viri;
+    Rigidbody r;
     void Start()
     {
         if (Variant != -1)
         {
+            r = GetComponent<Rigidbody>();
             Viri = GameObject.Find("Viri");
             Viri_Code = Viri.GetComponent<Viri_AI>();
             parent = transform.parent.gameObject;
             parentCode = transform.GetComponentInParent<EnemyCell_AI>();
         }
     }
+	void Update()
+	{
+		if(Variant != -1)
+        {
+            if (r != null)
+            {
+                r.velocity = Vector3.zero;
+            }
+        }
+	}
 	void OnCollisionStay(Collision collision)
 	{
         if (Variant != -1)

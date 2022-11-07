@@ -44,13 +44,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423018144153707}
   serializedVersion: 2
-  m_Mass: 10000
-  m_Drag: 10000
+  m_Mass: 1e+9
+  m_Drag: Infinity
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!64 &4587423018144153706
 MeshCollider:
@@ -344,8 +344,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423018479755915}
   serializedVersion: 2
-  m_Mass: 10000
-  m_Drag: 10000
+  m_Mass: 1e+9
+  m_Drag: Infinity
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -5400,13 +5400,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423019115139875}
   serializedVersion: 2
-  m_Mass: 10000
-  m_Drag: 10000
+  m_Mass: 1e+9
+  m_Drag: Infinity
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!64 &4587423019115139874
 MeshCollider:
@@ -10341,13 +10341,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423019339662900}
   serializedVersion: 2
-  m_Mass: 10000
-  m_Drag: 10000
+  m_Mass: 1e+9
+  m_Drag: Infinity
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!64 &4587423019339662899
 MeshCollider:
