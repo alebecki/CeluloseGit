@@ -152,6 +152,10 @@ public class Viri_AI : MonoBehaviour
                                     transform.position = Vector3.MoveTowards(transform.position, Hurt_by.transform.position, -(speed * .5f) * Time.deltaTime);
                                     if (Hurt_Time < 2)
                                     {
+                                        if (Hurt_Time == 0)
+                                        {
+                                            Lives.healthValue--;
+                                        }
                                         Hurt_Time += 2 * Time.smoothDeltaTime;
                                     }
                                     else
@@ -205,7 +209,6 @@ public class Viri_AI : MonoBehaviour
         if ((other.name == "ShootG")&&(PainKnockBack == false))
         {
             Hurt_by = other.gameObject;
-            Lives.healthValue--;
             this.gameObject.GetComponent<AudioSource>().Play();
             PainKnockBack = true;
         }
