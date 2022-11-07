@@ -28,6 +28,9 @@ public class EnemyCell_AI : MonoBehaviour
     public GameObject LookAtViri;
     public GameObject LookAtViri_Center;
     public bool Hit_Viri;
+    public AudioClip CellDeath;
+    public AudioClip RammerRam;
+    public AudioClip ShooterShoot;
     Collider Viri_Collider;
     Viri_AI Viri_Code;
     float ram1;
@@ -59,12 +62,14 @@ public class EnemyCell_AI : MonoBehaviour
             {
                 LetTheSpawnKnow.RammerCellsKilled += 1;
                 Count_Once = true;
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(CellDeath);
             }
             if (Enemy_Type == 1)
             {
                 LetTheSpawnKnow.ShootersPresent -= 1;
                 LetTheSpawnKnow.ShooterCellsKilled += 1;
                 Count_Once = true;
+                this.gameObject.GetComponent<AudioSource>().PlayOneShot(CellDeath);
             }
         }
         //kills the cell
@@ -100,6 +105,8 @@ public class EnemyCell_AI : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         ManualShoot.GetComponent<ParticleSystem>().Play();
+                        this.gameObject.GetComponent<AudioSource>().PlayOneShot(ShooterShoot);
+
                     }
                     break;
                 }
@@ -267,6 +274,7 @@ public class EnemyCell_AI : MonoBehaviour
                                 {
                                     transform.position = Vector3.MoveTowards(transform.position, LookAtViri_Center.transform.position, -(speed * slowDownFactor) * Time.deltaTime);
                                     ram1 += .5f * Time.deltaTime;
+                                    
                                 }
                                 else
                                 {
@@ -279,9 +287,9 @@ public class EnemyCell_AI : MonoBehaviour
                                         Attack = true;
                                         Ramparticle.transform.LookAt(LookAtViri_Center.transform, Vector3.up);
                                         Ramparticle.SetActive(true);
-
                                         transform.position = Vector3.MoveTowards(transform.position, LookAtViri_Center.transform.position, (speed * fastDownfactor) * Time.deltaTime);
                                         ram2 += .5f * Time.deltaTime;
+                                        this.gameObject.GetComponent<AudioSource>().PlayOneShot(RammerRam);
                                     }
                                     else
                                     {
