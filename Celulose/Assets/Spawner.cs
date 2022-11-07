@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public bool DebugMe;
+    public bool IsRiding;
     public int iTotalCellsKilled;
     public int TotalCellsKilled;
     public int Required_Cell_Amount;
@@ -23,12 +25,15 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if(ShootersPresent < 0)
+        if (DebugMe == false)
         {
-            ShootersPresent = 0;
+            if (ShootersPresent < 0)
+            {
+                ShootersPresent = 0;
+            }
+            ProgressRate();
+            TotalCellsKilled = RammerCellsKilled + ShooterCellsKilled;
         }
-        ProgressRate();
-        TotalCellsKilled = RammerCellsKilled + ShooterCellsKilled;
     }
     int Seed;
     int SpawnRandomPlace;

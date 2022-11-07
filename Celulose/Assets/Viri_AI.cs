@@ -23,8 +23,10 @@ public class Viri_AI : MonoBehaviour
     bool PainKnockBack;
     float Hurt_Time;
     Collider collider;
+    Spawner LetTheSpawnKnow;
     void Start()
     {
+        LetTheSpawnKnow = GameObject.Find("SpawnMaster").GetComponent<Spawner>();
         collider = GetComponent<Collider>();
     }
 
@@ -47,6 +49,7 @@ public class Viri_AI : MonoBehaviour
         {
             case true:
                 {
+                    LetTheSpawnKnow.IsRiding = true;
                     Infected_Play.SetActive(true);
                     Reset_rotation = true;
                     if (Cell_Code == null)
@@ -130,6 +133,7 @@ public class Viri_AI : MonoBehaviour
                 }
             case false:
                 {
+                    LetTheSpawnKnow.IsRiding = false;
                     collider.enabled = true;
                     InfectRam.SetActive(false);
                     Infected_Play.SetActive(false);
@@ -206,6 +210,16 @@ public class Viri_AI : MonoBehaviour
 		if(collision.gameObject.GetComponent<Collider_Checker>() != null)
         {
             Hurt_by = collision.gameObject;
+            Lives.healthValue--;
+            this.gameObject.GetComponent<AudioSource>().Play();
+            PainKnockBack = true;
+        }
+	}
+	void OnTriggerEnter(Collider other)
+	{
+        if ((other.gameObject.GetComponent<Collider_Checker>() != null)&&(other.gameObject.GetComponent<Collider_Checker>().Variant == 0))
+        {
+            Hurt_by = other.gameObject;
             Lives.healthValue--;
             this.gameObject.GetComponent<AudioSource>().Play();
             PainKnockBack = true;

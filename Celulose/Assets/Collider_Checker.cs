@@ -50,7 +50,16 @@ public class Collider_Checker : MonoBehaviour
 	{
         if (Variant != -1)
         {
-            if ((other.gameObject == parentCode.Viri) && (Variant == 0))
+            if (other.gameObject == parentCode.Viri)
+            {
+                parentCode.Hit_Viri = true;
+            }
+            if ((other.gameObject.GetComponent<EnemyCell_AI>() != null) && (other.gameObject.GetComponent<EnemyCell_AI>().Viri_Attack == true))
+            {
+                other.gameObject.GetComponent<EnemyCell_AI>().Die = true;
+                parentCode.Die = true;
+            }
+            if ((other.gameObject == parentCode.Viri) && (Variant == 2))
             {
                 Viri_Code.InThisCell = true;
                 Viri_Code.WasInCell = false;
@@ -66,7 +75,7 @@ public class Collider_Checker : MonoBehaviour
 	{
         if (Variant != -1)
         {
-            if ((other.gameObject == parentCode.Viri) && (Variant == 0))
+            if ((other.gameObject == parentCode.Viri) && (Variant == 2))
             {
                 Viri_Code.InThisCell = false;
                 Viri_Code.WasInCell = true;

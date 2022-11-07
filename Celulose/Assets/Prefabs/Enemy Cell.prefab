@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4587423018144153717}
-  - component: {fileID: 4587423018144153704}
   - component: {fileID: 4587423018144153706}
   - component: {fileID: 4587423018144153705}
   - component: {fileID: 4587423018144153716}
   - component: {fileID: 4587423018144153715}
+  - component: {fileID: 2154078948284402603}
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (2) (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)'
   m_TagString: Untagged
@@ -36,22 +36,6 @@ Transform:
   m_Father: {fileID: 4587423019913685989}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
---- !u!54 &4587423018144153704
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587423018144153707}
-  serializedVersion: 2
-  m_Mass: 1e+9
-  m_Drag: Infinity
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!64 &4587423018144153706
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -60,7 +44,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423018144153707}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -129,6 +113,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423018144153707}
   m_Mesh: {fileID: -3714734767610967304, guid: f08cc4c0bacac4c2a8f973ea934822ba, type: 3}
+--- !u!54 &2154078948284402603
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587423018144153707}
+  serializedVersion: 2
+  m_Mass: 1e+9
+  m_Drag: Infinity
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4587423018186071169
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7283090db88d548ae857b933712569b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Variant: 0
+  Variant: 2
 --- !u!23 &4587423018186071179
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -309,11 +309,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4587423018479755925}
-  - component: {fileID: 4587423018479755912}
   - component: {fileID: 4587423018479755914}
   - component: {fileID: 4587423018479755913}
   - component: {fileID: 4587423018479755924}
   - component: {fileID: 4587423018479755923}
+  - component: {fileID: 8272608196179493744}
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)'
   m_TagString: Untagged
@@ -336,22 +336,6 @@ Transform:
   m_Father: {fileID: 4587423019913685989}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!54 &4587423018479755912
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587423018479755915}
-  serializedVersion: 2
-  m_Mass: 1e+9
-  m_Drag: Infinity
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!64 &4587423018479755914
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -360,7 +344,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423018479755915}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -429,6 +413,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423018479755915}
   m_Mesh: {fileID: -3714734767610967304, guid: f08cc4c0bacac4c2a8f973ea934822ba, type: 3}
+--- !u!54 &8272608196179493744
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587423018479755915}
+  serializedVersion: 2
+  m_Mass: 1e+9
+  m_Drag: Infinity
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4587423018736115189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,11 +5365,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4587423019115139885}
-  - component: {fileID: 4587423019115139872}
   - component: {fileID: 4587423019115139874}
   - component: {fileID: 4587423019115139873}
   - component: {fileID: 4587423019115139884}
   - component: {fileID: 4587423019115139883}
+  - component: {fileID: 4183379585829898586}
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (1) (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)'
   m_TagString: Untagged
@@ -5392,22 +5392,6 @@ Transform:
   m_Father: {fileID: 4587423019913685989}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
---- !u!54 &4587423019115139872
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587423019115139875}
-  serializedVersion: 2
-  m_Mass: 1e+9
-  m_Drag: Infinity
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!64 &4587423019115139874
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5416,7 +5400,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423019115139875}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -5485,6 +5469,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423019115139875}
   m_Mesh: {fileID: -3714734767610967304, guid: f08cc4c0bacac4c2a8f973ea934822ba, type: 3}
+--- !u!54 &4183379585829898586
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587423019115139875}
+  serializedVersion: 2
+  m_Mass: 1e+9
+  m_Drag: Infinity
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4587423019131277805
 GameObject:
   m_ObjectHideFlags: 0
@@ -10306,11 +10306,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4587423019339662910}
-  - component: {fileID: 4587423019339662897}
   - component: {fileID: 4587423019339662899}
   - component: {fileID: 4587423019339662898}
   - component: {fileID: 4587423019339662909}
   - component: {fileID: 4587423019339662908}
+  - component: {fileID: 5379999177258701161}
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (3) (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)'
   m_TagString: Untagged
@@ -10333,22 +10333,6 @@ Transform:
   m_Father: {fileID: 4587423019913685989}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 270, z: 0}
---- !u!54 &4587423019339662897
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587423019339662900}
-  serializedVersion: 2
-  m_Mass: 1e+9
-  m_Drag: Infinity
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!64 &4587423019339662899
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10357,7 +10341,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423019339662900}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -10426,6 +10410,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587423019339662900}
   m_Mesh: {fileID: -3714734767610967304, guid: f08cc4c0bacac4c2a8f973ea934822ba, type: 3}
+--- !u!54 &5379999177258701161
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587423019339662900}
+  serializedVersion: 2
+  m_Mass: 1e+9
+  m_Drag: Infinity
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &4587423019435205669
 GameObject:
   m_ObjectHideFlags: 0
@@ -15359,6 +15359,7 @@ GameObject:
   - component: {fileID: 4587423019913685980}
   - component: {fileID: 4587423019913685981}
   - component: {fileID: -2887611769645686421}
+  - component: {fileID: 6138583742955545752}
   m_Layer: 0
   m_Name: Enemy Cell
   m_TagString: Untagged
@@ -15455,6 +15456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7add2034a365b47feb076c9baff19273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitRide: {fileID: 6138583742955545752}
+  Inspect: {fileID: 4587423019913685977}
   AutoShoot: {fileID: 0}
   ManualShoot: {fileID: 0}
   Cell_parts:
@@ -15668,6 +15671,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &6138583742955545752
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587423019913685982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4587423020111844575
 GameObject:
   m_ObjectHideFlags: 0

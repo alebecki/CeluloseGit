@@ -22360,6 +22360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f156cfac2e7440d88f7983dda3ac0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMe: 0
+  IsRiding: 0
   iTotalCellsKilled: 0
   TotalCellsKilled: 0
   Required_Cell_Amount: 0
@@ -22928,7 +22930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b758c5bd6d2c6d8408963883f1042f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endScore: {fileID: 0}
+  endScore: {fileID: 1312379916}
 --- !u!114 &1312379916
 MonoBehaviour:
   m_ObjectHideFlags: 0

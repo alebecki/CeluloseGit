@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyCell_AI : MonoBehaviour
 {
+    public GameObject DUD;
+    public Collider HitRide;
+    public Collider Inspect;
     public ParticleSystem AutoShoot;
     public ParticleSystem ManualShoot;
     public GameObject[] Cell_parts;
@@ -139,6 +142,16 @@ public class EnemyCell_AI : MonoBehaviour
                     {
                         case 0:
                             {
+                                if (LetTheSpawnKnow.IsRiding == true)
+                                {
+                                    Inspect.enabled = false;
+                                    HitRide.enabled = true;
+                                }
+                                if(LetTheSpawnKnow.IsRiding == false)
+                                {
+                                    Inspect.enabled = true;
+                                    HitRide.enabled = false;
+                                }
                                 //rammer enemy
                                 switch (Viri_in_cell)
                                 {
@@ -211,18 +224,16 @@ public class EnemyCell_AI : MonoBehaviour
         if((Viri_control_the_cell == true)&&((collision.gameObject != Viri))&&(Viri_Attack == false))
         {
             //this can have more polish later on
-           Viri_Code.Control_Cell_Mode = false;
-            Viri_Collider.enabled = true;
-           Die = true;
         }
 	}
 	void OnTriggerEnter(Collider other)
     {
-        if ((Viri_control_the_cell == true) && ((other.gameObject != Viri)) && (Viri_Attack == false)&&(Viri_in_cell == false))
+        if ((Viri_control_the_cell == true) && ((other.gameObject != Viri)) && (Viri_Attack == false))
         {
             //this can have more polish later on
-            Viri_Code.Control_Cell_Mode = false;
-            Viri_Collider.enabled = true;
+          // DUD = other.gameObject;
+           Viri_Code.Control_Cell_Mode = false;
+           Viri_Collider.enabled = true;
             Die = true;
         }
         if ((other.gameObject == Viri)&&(Enemy_Type == 0))
