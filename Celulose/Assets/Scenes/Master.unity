@@ -21889,6 +21889,7 @@ GameObject:
   - component: {fileID: 980692348}
   - component: {fileID: 980692347}
   - component: {fileID: 980692353}
+  - component: {fileID: 980692354}
   m_Layer: 0
   m_Name: Viri
   m_TagString: Untagged
@@ -21908,6 +21909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d150876ec774a65a2841424aff462e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DUD: {fileID: 0}
   Control_Cell_Type: 0
   InfectRam: {fileID: 208364281}
   Infected_Play: {fileID: 600614788}
@@ -21921,6 +21923,7 @@ MonoBehaviour:
   Control_Cell_Mode: 0
   Control_Type: 0
   RammerRam: {fileID: 8300000, guid: 958f65d8d95144ecb96a8cc3f55f07c4, type: 3}
+  PainKnockBack: 0
 --- !u!65 &980692348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21949,7 +21952,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!23 &980692350
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22114,6 +22117,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &980692354
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980692346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7921588, y: 5, z: 4.500181}
+  m_Center: {x: 0.14370419, y: -1.3846668e-15, z: 1.4282831}
 --- !u!1 &1028790682
 GameObject:
   m_ObjectHideFlags: 0

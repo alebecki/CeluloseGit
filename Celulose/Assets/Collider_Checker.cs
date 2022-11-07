@@ -46,21 +46,25 @@ public class Collider_Checker : MonoBehaviour
             }
         }
 	}
+	void OnTriggerEnter(Collider other)
+	{
+        if ((Variant == 0))
+        {
+            if (other.gameObject == parentCode.Viri)
+            {
+                parentCode.Hit_Viri = true;
+                Viri_Code.Hurt_by = this.gameObject;
+                Lives.healthValue--;
+                Viri_Code.gameObject.GetComponent<AudioSource>().Play();
+                Viri_Code.PainKnockBack = true;
+
+            }
+        }
+	}
 	void OnTriggerStay(Collider other)
 	{
         if (Variant != -1)
         {
-            if (other.gameObject == parentCode.Viri)
-            {
-                if ((Variant == 0))
-                {
-                    parentCode.Hit_Viri = true;
-                    Viri_Code.Hurt_by = this.gameObject;
-                    Lives.healthValue--;
-                    Viri_Code.gameObject.GetComponent<AudioSource>().Play();
-                    Viri_Code.PainKnockBack = true;
-                }
-            }
             if ((other.gameObject.GetComponent<EnemyCell_AI>() != null) && (other.gameObject.GetComponent<EnemyCell_AI>().Viri_Attack == true))
             {
                 other.gameObject.GetComponent<EnemyCell_AI>().Die = true;
