@@ -213,19 +213,9 @@ public class Viri_AI : MonoBehaviour
             PainKnockBack = true;
         }
 	}
-	void OnCollisionEnter(Collision collision)
-	{
-        if((collision.gameObject.GetComponent<Collider_Checker>() != null)&&(collision.gameObject.GetComponent<Collider_Checker>().Variant == 0)&& (PainKnockBack == false))
-        {
-            Hurt_by = collision.gameObject;
-            Lives.healthValue--;
-            this.gameObject.GetComponent<AudioSource>().Play();
-            PainKnockBack = true;
-        }
-	}
 	void OnTriggerEnter(Collider other)
 	{
-        if ((other.gameObject.GetComponent<Collider_Checker>() != null) && (other.gameObject.GetComponent<Collider_Checker>().Variant == 0)&& (PainKnockBack == false))
+        if ((other.gameObject.name == "CellWallPain")&& (PainKnockBack == false))
         {
             Hurt_by = other.gameObject;
             Lives.healthValue--;
