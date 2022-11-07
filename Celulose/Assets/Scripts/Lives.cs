@@ -13,7 +13,7 @@ public class Lives : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthValue = 5;
+        healthValue = 10;
         gameOver = false;
         health = GetComponent<TMPro.TextMeshProUGUI>();
     }
