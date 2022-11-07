@@ -204,13 +204,20 @@ public class EnemyCell_AI : MonoBehaviour
         if((Viri_control_the_cell == true)&&((collision.gameObject != Viri))&&(Viri_Attack == false))
         {
             //this can have more polish later on
-            Viri_Code.Control_Cell_Mode = false;
+           Viri_Code.Control_Cell_Mode = false;
             Viri_Collider.enabled = true;
-            Die = true;
+           Die = true;
         }
 	}
 	void OnTriggerEnter(Collider other)
     {
+        if ((Viri_control_the_cell == true) && ((other.gameObject != Viri)) && (Viri_Attack == false)&&(Viri_in_cell == false))
+        {
+            //this can have more polish later on
+            Viri_Code.Control_Cell_Mode = false;
+            Viri_Collider.enabled = true;
+            Die = true;
+        }
         if ((other.gameObject == Viri)&&(Enemy_Type == 0))
         {
             PrepareAttack = true;
