@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Viri_AI : MonoBehaviour
 {
+    public GameObject DUD;
     public int Control_Cell_Type;
     public GameObject InfectRam;
     public GameObject Infected_Play;
@@ -20,7 +21,7 @@ public class Viri_AI : MonoBehaviour
     bool Do_Ram;
     float Ram_Speed;
     bool Reset_rotation;
-    bool PainKnockBack;
+    public bool PainKnockBack;
     float Hurt_Time;
     Collider collider;
     Spawner LetTheSpawnKnow;
@@ -207,22 +208,10 @@ public class Viri_AI : MonoBehaviour
 	}
 	void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.GetComponent<Collider_Checker>() != null)
-        {
-            Hurt_by = collision.gameObject;
-            Lives.healthValue--;
-            this.gameObject.GetComponent<AudioSource>().Play();
-            PainKnockBack = true;
-        }
+		
 	}
 	void OnTriggerEnter(Collider other)
 	{
-        if ((other.gameObject.GetComponent<Collider_Checker>() != null)&&(other.gameObject.GetComponent<Collider_Checker>().Variant == 0))
-        {
-            Hurt_by = other.gameObject;
-            Lives.healthValue--;
-            this.gameObject.GetComponent<AudioSource>().Play();
-            PainKnockBack = true;
-        }
+        
 	}
 }

@@ -52,7 +52,14 @@ public class Collider_Checker : MonoBehaviour
         {
             if (other.gameObject == parentCode.Viri)
             {
-                parentCode.Hit_Viri = true;
+                if ((Variant == 0))
+                {
+                    parentCode.Hit_Viri = true;
+                    Viri_Code.Hurt_by = this.gameObject;
+                    Lives.healthValue--;
+                    Viri_Code.gameObject.GetComponent<AudioSource>().Play();
+                    Viri_Code.PainKnockBack = true;
+                }
             }
             if ((other.gameObject.GetComponent<EnemyCell_AI>() != null) && (other.gameObject.GetComponent<EnemyCell_AI>().Viri_Attack == true))
             {

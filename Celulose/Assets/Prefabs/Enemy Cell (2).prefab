@@ -4843,7 +4843,7 @@ GameObject:
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (1) (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)
     (1)'
-  m_TagString: Untagged
+  m_TagString: Pain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19977,7 +19977,7 @@ GameObject:
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (2) (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)
     (1)'
-  m_TagString: Untagged
+  m_TagString: Pain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24908,7 +24908,7 @@ GameObject:
   - component: {fileID: 1410417847829179344}
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (1) (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)'
-  m_TagString: Untagged
+  m_TagString: Pain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29977,7 +29977,7 @@ GameObject:
   - component: {fileID: 1410417848442377729}
   m_Layer: 0
   m_Name: 'EnemyCell1 Col (2) (Missing Prefab with guid: 50a6df3d763b14866876f274748499e7)'
-  m_TagString: Untagged
+  m_TagString: Pain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
