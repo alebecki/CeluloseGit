@@ -16,6 +16,7 @@ public class Viri_AI : MonoBehaviour
     public EnemyCell_AI Cell_Code;
     public bool Control_Cell_Mode;
     public int Control_Type;
+    public AudioClip RammerRam;
     bool Do_Ram;
     float Ram_Speed;
     bool Reset_rotation;
@@ -107,6 +108,8 @@ public class Viri_AI : MonoBehaviour
                                     Cell_Code.Viri_Attack = true;
                                     Ram_Speed = 10;
                                     Do_Ram = true;
+                                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(RammerRam);
+
                                 }
                                 //
                                 if (Ram_Speed > 0)
@@ -194,6 +197,7 @@ public class Viri_AI : MonoBehaviour
         {
             Hurt_by = other.gameObject;
             Lives.healthValue--;
+            this.gameObject.GetComponent<AudioSource>().Play();
             PainKnockBack = true;
         }
 	}
@@ -203,6 +207,7 @@ public class Viri_AI : MonoBehaviour
         {
             Hurt_by = collision.gameObject;
             Lives.healthValue--;
+            this.gameObject.GetComponent<AudioSource>().Play();
             PainKnockBack = true;
         }
 	}

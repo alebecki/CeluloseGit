@@ -39,6 +39,8 @@ public class Spawner : MonoBehaviour
         {
             RandomPlace();
             Instantiate(Shooter_Cell, Spawners[SpawnRandomPlace].transform.position, Spawners[SpawnRandomPlace].transform.rotation);
+                        this.gameObject.GetComponent<AudioSource>().Play();
+
         }
     }
     void AutoGenerate()
@@ -64,6 +66,8 @@ public class Spawner : MonoBehaviour
                         RandomPlace();
                         Instantiate(Rammer_Cell, Spawners[SpawnRandomPlace].transform.position, Spawners[SpawnRandomPlace].transform.rotation);
                         Required_Cell_Amount = 3;
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                         break;
                     }
@@ -75,6 +79,8 @@ public class Spawner : MonoBehaviour
                         RandomPlace();
                         Instantiate(Rammer_Cell, Spawners[SpawnRandomPlace].transform.position, Spawners[SpawnRandomPlace].transform.rotation);
                         AllowShooter();
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Required_Cell_Amount = 3;
                         Spawn_once = true;
                         break;
@@ -86,6 +92,8 @@ public class Spawner : MonoBehaviour
                         RandomPlace();
                         Instantiate(Rammer_Cell, Spawners[SpawnRandomPlace].transform.position, Spawners[SpawnRandomPlace].transform.rotation);
                         Required_Cell_Amount = 1;
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                         break;
                     }
@@ -103,6 +111,8 @@ public class Spawner : MonoBehaviour
                         Instantiate(Rammer_Cell, Spawners[SpawnRandomPlace].transform.position, Spawners[SpawnRandomPlace].transform.rotation);
                         AllowShooter();
                         AllowShooter();
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Required_Cell_Amount = 2;
                         Spawn_once = true;
                         break;
@@ -115,6 +125,8 @@ public class Spawner : MonoBehaviour
                         Instantiate(Rammer_Cell, Spawners[SpawnRandomPlace].transform.position, Spawners[SpawnRandomPlace].transform.rotation);
                         RandomPlace();
                         Instantiate(Rammer_Cell, Spawners[SpawnRandomPlace].transform.position, Spawners[SpawnRandomPlace].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Required_Cell_Amount = 2;
                         Spawn_once = true;
                         break;
@@ -144,6 +156,8 @@ public class Spawner : MonoBehaviour
                     if (Spawn_once == false)
                     {
                         Instantiate(Rammer_Cell, Spawners[1].transform.position, Spawners[1].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (LearnToTakeControl == true)
@@ -158,6 +172,8 @@ public class Spawner : MonoBehaviour
                     if (Spawn_once == false)
                     {
                         Instantiate(Rammer_Cell, Spawners[6].transform.position, Spawners[6].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (TotalCellsKilled >= 1)
@@ -173,6 +189,8 @@ public class Spawner : MonoBehaviour
                     {
                         Instantiate(Rammer_Cell, Spawners[0].transform.position, Spawners[0].transform.rotation);
                         Instantiate(Rammer_Cell, Spawners[2].transform.position, Spawners[2].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if(TotalCellsKilled >= 3)
@@ -189,6 +207,8 @@ public class Spawner : MonoBehaviour
                         Instantiate(Rammer_Cell, Spawners[5].transform.position, Spawners[5].transform.rotation);
                         Instantiate(Rammer_Cell, Spawners[7].transform.position, Spawners[7].transform.rotation);
                         Instantiate(Rammer_Cell, Spawners[1].transform.position, Spawners[1].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (TotalCellsKilled >= 6)
@@ -206,6 +226,8 @@ public class Spawner : MonoBehaviour
                         Instantiate(Rammer_Cell, Spawners[8].transform.position, Spawners[8].transform.rotation);
                         Instantiate(Rammer_Cell, Spawners[3].transform.position, Spawners[3].transform.rotation);
                         Instantiate(Rammer_Cell, Spawners[4].transform.position, Spawners[4].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (TotalCellsKilled >= 10)
@@ -220,6 +242,8 @@ public class Spawner : MonoBehaviour
                     if (Spawn_once == false)
                     {
                         Instantiate(Shooter_Cell, Spawners[1].transform.position, Spawners[1].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (TotalCellsKilled >= 11)
@@ -235,6 +259,8 @@ public class Spawner : MonoBehaviour
                     {
                         Instantiate(Rammer_Cell, Spawners[0].transform.position, Spawners[0].transform.rotation);
                         Instantiate(Rammer_Cell, Spawners[2].transform.position, Spawners[2].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (TotalCellsKilled >= 12)
@@ -252,6 +278,8 @@ public class Spawner : MonoBehaviour
                         Instantiate(Rammer_Cell, Spawners[1].transform.position, Spawners[1].transform.rotation);
                         Instantiate(Rammer_Cell, Spawners[2].transform.position, Spawners[2].transform.rotation);
                         Instantiate(Shooter_Cell, Spawners[6].transform.position, Spawners[6].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (TotalCellsKilled >= 15)
@@ -267,6 +295,8 @@ public class Spawner : MonoBehaviour
                     {
                         Instantiate(Rammer_Cell, Spawners[0].transform.position, Spawners[0].transform.rotation);
                         Instantiate(Shooter_Cell, Spawners[6].transform.position, Spawners[6].transform.rotation);
+                                    this.gameObject.GetComponent<AudioSource>().Play();
+
                         Spawn_once = true;
                     }
                     if (TotalCellsKilled >= 16)
