@@ -35,7 +35,7 @@ public class Viri_AI : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(transform.position.x, -45.15341f, transform.position.z);
-        if(InThisCell == true)
+        if (InThisCell == true)
         {
             CellPolishIN.SetActive(true);
             CellPolishOUT.SetActive(false);
@@ -129,7 +129,7 @@ public class Viri_AI : MonoBehaviour
                                 }
                                 break;
                             }
-                }
+                    }
                     break;
                 }
             case false:
@@ -165,7 +165,7 @@ public class Viri_AI : MonoBehaviour
                                 }
                                 if (Hurt_by == null)
                                 { PainKnockBack = false; }
-                                
+
                                 break;
                             }
                         case false:
@@ -198,29 +198,29 @@ public class Viri_AI : MonoBehaviour
                     }
                     break;
                 }
-    }
+        }
     }
     void OW()
     {
-        
+
     }
-	void OnParticleCollision(GameObject other)
-	{
-        if ((other.name == "ShootG")&&(PainKnockBack == false))
+    void OnParticleCollision(GameObject other)
+    {
+        if ((other.name == "ShootG") && (PainKnockBack == false))
         {
             Hurt_by = other.gameObject;
             this.gameObject.GetComponent<AudioSource>().Play();
             PainKnockBack = true;
         }
-	}
-	void OnTriggerEnter(Collider other)
-	{
-        if ((other.gameObject.name == "CellWallPain")&& (PainKnockBack == false))
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if ((other.gameObject.name == "CellWallPain") && (PainKnockBack == false))
         {
             Hurt_by = other.gameObject;
-            Lives.healthValue--;
+            //Lives.healthValue--;
             this.gameObject.GetComponent<AudioSource>().Play();
             PainKnockBack = true;
         }
-	}
+    }
 }

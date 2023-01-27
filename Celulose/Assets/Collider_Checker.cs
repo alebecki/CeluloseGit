@@ -21,18 +21,18 @@ public class Collider_Checker : MonoBehaviour
             parentCode = transform.GetComponentInParent<EnemyCell_AI>();
         }
     }
-	void Update()
-	{
-		if(Variant != -1)
+    void Update()
+    {
+        if (Variant != -1)
         {
             if (r != null)
             {
                 r.velocity = Vector3.zero;
             }
         }
-	}
-	void OnCollisionStay(Collision collision)
-	{
+    }
+    void OnCollisionStay(Collision collision)
+    {
         if (Variant != -1)
         {
             if (collision.gameObject == parentCode.Viri)
@@ -45,24 +45,24 @@ public class Collider_Checker : MonoBehaviour
                 parentCode.Die = true;
             }
         }
-	}
-	void OnTriggerEnter(Collider other)
-	{
+    }
+    void OnTriggerEnter(Collider other)
+    {
         if ((Variant == 0))
         {
             if (other.gameObject == parentCode.Viri)
             {
                 parentCode.Hit_Viri = true;
                 Viri_Code.Hurt_by = this.gameObject;
-                Lives.healthValue--;
+                //Lives.healthValue--;
                 Viri_Code.gameObject.GetComponent<AudioSource>().Play();
                 Viri_Code.PainKnockBack = true;
 
             }
         }
-	}
-	void OnTriggerStay(Collider other)
-	{
+    }
+    void OnTriggerStay(Collider other)
+    {
         if (Variant != -1)
         {
             if ((other.gameObject.GetComponent<EnemyCell_AI>() != null) && (other.gameObject.GetComponent<EnemyCell_AI>().Viri_Attack == true))
@@ -81,9 +81,9 @@ public class Collider_Checker : MonoBehaviour
                 parentCode.Viri_control_the_cell = true;
             }
         }
-	}
-	void OnTriggerExit(Collider other)
-	{
+    }
+    void OnTriggerExit(Collider other)
+    {
         if (Variant != -1)
         {
             if ((other.gameObject == parentCode.Viri) && (Variant == 2))
@@ -93,7 +93,7 @@ public class Collider_Checker : MonoBehaviour
                 parentCode.Viri_in_cell = false;
             }
         }
-	}
+    }
     void OnParticleCollision(GameObject other)
     {
         if (Variant != -1)
